@@ -3,7 +3,7 @@ package binary_search
 import "core:intrinsics"
 
 binary_search :: proc(haystack: ^[]$T, needle: T) -> (index: int = -1, found: bool = false) 
-	where intrinsics.type_is_comparable(T)
+	where intrinsics.type_is_comparable(T) && intrinsics.type_is_ordered(T)
 	{
 	low := 0
 	high := len(haystack)
