@@ -11,18 +11,17 @@ binary_search :: proc(haystack: ^[]$T, needle: T) -> (index: int = -1, found: bo
 	for low < high {
 		m := low + (high - low) / 2
 
-		if m == needle {
+		if haystack[m] == needle {
 			index = m
 			found = true
 			return
 		}
 
-		if m < needle {
+		if haystack[m] < needle {
 			low = m + 1
 		}
 
-		if m > needle {
-			low = 0
+		if haystack[m] > needle {
 			high = m
 		}
 	}
